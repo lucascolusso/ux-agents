@@ -1,0 +1,123 @@
+{
+  "tools": [
+    {
+      "name": "evaluate_usability_pattern",
+      "description": "Evaluate a UI pattern based on usability heuristics (e.g. visibility, feedback, consistency, error prevention). Suggest alternatives if issues are found.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "pattern_name": {
+            "type": "string",
+            "description": "The name of the UI pattern or component (e.g. dropdown, checkbox, modal dialog)"
+          },
+          "context_description": {
+            "type": "string",
+            "description": "Describe the use case or scenario where this pattern is used"
+          }
+        },
+        "required": [
+          "pattern_name",
+          "context_description"
+        ]
+      }
+    },
+    {
+      "name": "group_ui_components",
+      "description": "Suggest a logical grouping of UI elements based on user intent and interaction flow (e.g. dashboard layout, settings page).",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "components": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "List of UI components to be grouped (e.g. ['Toggle', 'Dropdown', 'Date Picker'])"
+          },
+          "task_context": {
+            "type": "string",
+            "description": "Short description of what the user is trying to do (e.g. configure account settings)"
+          }
+        },
+        "required": [
+          "components",
+          "task_context"
+        ]
+      }
+    },
+    {
+      "name": "recommend_ui_pattern",
+      "description": "Recommend an appropriate UI pattern for a given interaction goal based on UX heuristics and design system guidelines.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "user_goal": {
+            "type": "string",
+            "description": "The user's goal or task (e.g. 'select one language from a list')"
+          },
+          "platform": {
+            "type": "string",
+            "enum": [
+              "iOS",
+              "Android",
+              "Web",
+              "Desktop"
+            ],
+            "description": "The platform or environment this interface is intended for"
+          }
+        },
+        "required": [
+          "user_goal",
+          "platform"
+        ]
+      }
+    },
+    {
+      "name": "assess_accessibility",
+      "description": "Check a UI component or pattern against accessibility best practices (WCAG) and return any concerns or improvements.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "component_name": {
+            "type": "string",
+            "description": "The name of the component (e.g. toggle, date picker, tooltip)"
+          },
+          "usage_context": {
+            "type": "string",
+            "description": "Brief description of where and how it's used in the UI"
+          }
+        },
+        "required": [
+          "component_name",
+          "usage_context"
+        ]
+      }
+    },
+    {
+      "name": "compare_ui_patterns",
+      "description": "Compare two UI patterns for a specific use case and return the trade-offs between them.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "pattern_a": {
+            "type": "string",
+            "description": "The first UI pattern to compare (e.g. radio buttons)"
+          },
+          "pattern_b": {
+            "type": "string",
+            "description": "The second UI pattern to compare (e.g. dropdown)"
+          },
+          "use_case": {
+            "type": "string",
+            "description": "A description of the specific use case or scenario"
+          }
+        },
+        "required": [
+          "pattern_a",
+          "pattern_b",
+          "use_case"
+        ]
+      }
+    }
+  ]
+}
